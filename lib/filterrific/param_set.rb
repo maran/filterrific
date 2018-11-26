@@ -49,7 +49,8 @@ module Filterrific
             permissible_filter_params << p
           end
         end
-        filterrific_params = filterrific_params.permit(permissible_filter_params).to_h.stringify_keys
+        filterrific_params = filterrific_params.permit!.to_h.stringify_keys #(permissible_filter_params).to_h.stringify_keys
+
       else
         filterrific_params.stringify_keys!
       end
